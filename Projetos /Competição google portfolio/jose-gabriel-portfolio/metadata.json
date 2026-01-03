@@ -1,0 +1,7 @@
+{
+  "name": "Jose Gabriel Portfolio",
+  "description": "A high-end, minimalist portfolio website for Jose Gabriel, featuring an AI-powered 'Fale Comigo' chat interface and sleek editorial design.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
