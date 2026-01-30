@@ -7,6 +7,8 @@
 
 Submission for the New Year, New You Portfolio Challenge Presented by Google AI. A dynamic, AI-powered showcase built to compete for the $3,000 prize pool and feedback from the Google AI team
 
+![Portfolio Demo](Gravacao_tela.gif)
+
 ## 🚀 Live Demo
 
 - **Production**: [https://portfolio-challenge-633123616006.us-central1.run.app/](https://portfolio-challenge-633123616006.us-central1.run.app/)
