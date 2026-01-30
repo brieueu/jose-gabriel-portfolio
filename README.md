@@ -48,12 +48,6 @@ docker build -t jose-gabriel-portfolio .
 docker run -p 8080:80 -e GEMINI_API_KEY=your_key_here jose-gabriel-portfolio
 ```
 
-## 🏆 Achievements
-
-- **1st Place** - Microsoft AI Challenge II (2025)
-- Azure Computer Vision integration
-- YOLOv8 pest detection system (F1-Score: 0.93)
-
 ## 📫 Contact
 
 - **Email**: jg.vieira.dev@gmail.com
