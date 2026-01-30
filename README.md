@@ -5,7 +5,7 @@
 [![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react)](https://react.dev/)
 [![Three.js](https://img.shields.io/badge/Three.js-0.170-000000?logo=three.js)](https://threejs.org/)
 
-Professional portfolio showcasing AI and Computer Vision projects, built with React, TypeScript, and Three.js. Winner of 1st place at Microsoft AI Challenge II (2025).
+Submission for the New Year, New You Portfolio Challenge Presented by Google AI. A dynamic, AI-powered showcase built to compete for the $3,000 prize pool and feedback from the Google AI team
 
 ## 🚀 Live Demo
 
