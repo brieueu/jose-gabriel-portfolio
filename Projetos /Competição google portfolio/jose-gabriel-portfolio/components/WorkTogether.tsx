@@ -355,10 +355,18 @@ const LiquidBackground: React.FC = () => {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      const x = e.clientX / window.innerWidth;
-      // Inversão do Y para alinhar coordenadas de tela com WebGL
-      const y = 1 - (e.clientY / window.innerHeight);
-      touchTexture.addTouch(x, y);
+      const workTogetherSection = document.getElementById('work-together-section');
+      if (!workTogetherSection) return;
+      
+      const rect = workTogetherSection.getBoundingClientRect();
+      const isInSection = e.clientY >= rect.top && e.clientY <= rect.bottom;
+      
+      if (isInSection) {
+        const x = e.clientX / window.innerWidth;
+        // Inversão do Y para alinhar coordenadas de tela com WebGL
+        const y = 1 - (e.clientY / window.innerHeight);
+        touchTexture.addTouch(x, y);
+      }
     };
     
     window.addEventListener("mousemove", handleMouseMove);
@@ -368,7 +376,7 @@ const LiquidBackground: React.FC = () => {
   return (
     <mesh>
       {/* PlaneGeometry cobrindo 2x2 clipspace */}
-      <planeGeometry args={[2, 2]} />
+      <planeGeometry args={[2, 2, 1, 1]} />
       <shaderMaterial
         ref={shaderRef}
         vertexShader={vertexShader}
@@ -376,6 +384,7 @@ const LiquidBackground: React.FC = () => {
         uniforms={uniforms}
         depthWrite={false}
         depthTest={false}
+        side={THREE.DoubleSide}
       />
     </mesh>
   );
@@ -406,18 +415,20 @@ const WorkTogether: React.FC = () => {
   return (
     <section 
       id="work-together-section"
-      className="relative min-h-screen w-full flex flex-col items-center justify-between overflow-hidden cursor-none"
-      style={{ fontFamily: "'Syne', sans-serif", backgroundColor: '#000000ff' }}
+      className="relative min-h-screen w-full flex flex-col items-center justify-between overflow-hidden"
+      style={{ fontFamily: "'Syne', sans-serif", backgroundColor: '#000000' }}
     >
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0" style={{ width: '100%', height: '100%' }}>
         <Canvas
           dpr={[1, 2]} // Performance: Max pixel ratio de 2
+          orthographic
+          camera={{ zoom: 1, position: [0, 0, 100] }}
           gl={{ 
             antialias: true, 
             powerPreference: "high-performance",
             alpha: false 
           }}
-          camera={{ position: [0, 0, 1] }} // Câmera ortográfica simulada
+          style={{ width: '100%', height: '100%' }}
         >
           <LiquidBackground />
         </Canvas>
